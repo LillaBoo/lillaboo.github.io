@@ -127,15 +127,13 @@ $(document).ready(function(){
 				}).then(function(data){
 					getGiftsList(data);	
 				});
-			}
-			
-
-
-
-			
-			
-			
+			}	
 		}
+	});
+
+	$(document).on('click', '.giftDetails', function(){
+		var itemId = $(this).closest('.thumbnail').attr('id');
+		window.location.href = "itemInformation.html?id=" + itemId;
 	});
 
 });

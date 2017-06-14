@@ -36,13 +36,13 @@ $(document).ready(function(){
 						$('#' + (i/3)).append('<div class="col-sm-4">' + 
 							'<div class="thumbnail" id="' + idGift + '"><img src=' + photoUrl + ' alt="">'+
 							'<div class="caption"><h5>' + data[i].title + '</h5><p>' + 
-							data[i].productAd + '</p><p><a href="#" class="btn btn-primary href-btn">More</a>' + 
+							data[i].productAd + '</p><p><a class="btn btn-primary href-btn giftDetails">Details >></a>' + 
 							'</div></div></div>');
 					} else{
 						$('.row.gift:last-child').append('<div class="col-sm-4">' + 
 							'<div class="thumbnail" id="' + idGift + '"><img src=' + photoUrl + ' alt="">'+
 							'<div class="caption"><h5>' + data[i].title + '</h5><p>' + 
-							data[i].productAd + '</p><p><a href="#" class="btn btn-primary href-btn">More</a>' + 
+							data[i].productAd + '</p><p><a class="btn btn-primary href-btn giftDetails">Details >></a>' + 
 							'</div></div></div>');
 					};
 				};
@@ -81,7 +81,10 @@ $(document).ready(function(){
 		});
 	}
 
-	
+	$(document).on('click', '.giftDetails', function(){
+		var itemId = $(this).closest('.thumbnail').attr('id');
+		window.location.href = "itemInformation.html?id=" + itemId;
+	});
 
 
 

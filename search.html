@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport"    content="width=device-width, initial-scale=1.0">
+
+	<title>FreeHands</title>
+
+	<link href="https://fonts.googleapis.com/css?family=Taviraj" rel="stylesheet">
+
+	<link rel="stylesheet" media="screen" href="https://fonts.googleapis.com/css?family=Open+Sans:300,400,700">
+
+	<link rel="stylesheet" type="text/css" href="css/libs.min.css">
+	<link rel="stylesheet" type="text/css" href="css/font-awesome.min.css">
+	<link rel="stylesheet" type="text/css" href="libs/bootstrap/dist/css/bootstrap.min.css">
+
+	<link rel="stylesheet" type="text/css" href="css/main.css">
+</head>
+<body>
+	<header class="main-head">
+		<!-- Fixed navbar -->
+		<nav class="navbar navbar-inverse navbar-fixed-top" >
+			<div class="container">
+				<div class="navbar-header">
+					<!-- Button for smallest screens -->
+					<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+						<span class="icon-bar"></span>
+					</button>
+					<a class="navbar-brand" href="index.html">FreeHands</a>
+				</div>
+				<div class="navbar-collapse collapse">
+					<ul class="nav navbar-nav navbar-right">
+						<li ><a href="index.html">Home</a></li>
+						<li><a href="about.html">About</a></li>
+						<li class="dropdown">
+							<a href="#" class="dropdown-toggle" data-toggle="dropdown">Our Apps<b class="caret"></b></a>
+							<ul class="dropdown-menu">
+								<li><a href="https://play.google.com/store?hl=ru">Android</a></li>
+								<li><a href="http://www.apple.com/ru/itunes/charts/free-apps/">IOS</a></li>
+							</ul>
+						</li>
+						<li class="active"><a class="btn" href="myAccount.html">My account</a></li>
+					</ul>
+				</div><!--/.nav-collapse -->
+			</div>
+		</nav> 
+		<!-- /.navbar -->
+	</header>
+
+	<!-- Main content -->
+		<div class="maincontent">
+
+			<div class="container myAccountcontainer myaccount">
+
+				<!-- 	Sidenav for small screens -->
+
+			<div id="mySidenav" class="sidenav" hidden>
+			  
+			  <div class="sidebar-account-wrapper">
+						<ul class="nav">
+							<li class="text-right" id="closebtn"><a href="javascript:void(0)"  onclick="closeNav()"><i class="fa fa-times" aria-hidden="true"></i></a></li>
+							<li class="active"><a href='profileInformation.html'  id="profile"><i class="fa fa-id-card-o" aria-hidden="true"></i> My profile</a></li>
+							<li><a href='myAccount.html'  id="allGifts"><i class="fa fa-th" aria-hidden="true"></i> All gifts</a></li>
+							<li><a href='myWishes.html' id="myWhishes"><i class="fa fa-heart-o" aria-hidden="true"></i> My wishes</a></li>
+							<li><a href='/' id="dialogs"><i class="fa fa-comments-o" aria-hidden="true"></i> My dialogs</a></li>
+							<li><a href='myAddresses.html' id="myAddresses"><i class="fa fa-home" aria-hidden="true"></i> My addresses</a></li>
+							<li><a href='myGifts.html' id="myGifts"><i class="fa fa-gift" aria-hidden="true"></i> My gifts</a></li>
+							<hr>
+							<li><a href='/' id="logout"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
+						</ul>
+					</div>
+			</div>
+
+			<!-- /idenav for small screens -->
+
+
+			<div class="col-md-3 col-sm-12 col-xs-12" >
+					<div id="sidenavForWideScreen">
+						<div class="sidebar-account-wrapper">
+							<ul class="nav">
+								<li id='avatar'><i class="fa fa-user-circle" aria-hidden="true"></i></li>
+								<li><a href='profileInformation.html'  id="profile"><i class="fa fa-id-card-o" aria-hidden="true"></i> My profile</a></li>
+								<li class="active"><a href='myAccount.html'  id="allGifts"><i class="fa fa-th" aria-hidden="true"></i> All gifts</a></li>
+								<li><a href='myWishes.html' id="myWhishes"><i class="fa fa-heart-o" aria-hidden="true"></i> My wishes</a></li>
+								<li><a href='/' id="dialogs"><i class="fa fa-comments-o" aria-hidden="true"></i> My dialogs</a></li>
+								<li><a href='myAddresses.html' id="myAddresses"><i class="fa fa-home" aria-hidden="true"></i> My addresses</a></li>
+								<li><a href='myGifts.html' id="myGifts"><i class="fa fa-gift" aria-hidden="true"></i> My gifts</a></li>
+								<hr>
+								<li><a href='/' id="logout2"><i class="fa fa-sign-out" aria-hidden="true"></i> Log out</a></li>
+							</ul>
+						</div>
+					</div>
+			</div>
+
+			<div class="col-md-9 col-sm-12 col-xs-12">
+
+				<div class="row">
+					<div class="col-lg-6 col-sm-6 col-xs-6">
+						<span class="underMainContentIcons" onclick="openNav()" id="openBtn"><i class="fa fa-ellipsis-v" aria-hidden="true"></i></span>
+					</div>
+					<div class="col-lg-6 col-sm-6 col-xs-6 text-right">
+					</div>
+				</div>
+
+				<div class="row">
+					<form id="searchForm" name="searchForm">
+						<div class="col-lg-3 col-sm-3 col-xs-12">
+							<input id="searchCity" name="searchCity" type="text" class="form-control" placeholder="Enter the city">
+						</div>
+						<div class="col-lg-3 col-sm-3 col-xs-12">
+							<select class="form-control" name="searchCategory1" id="searchCategory1">
+								<option value="" selected>Choose category</option>
+								<option value="Clothing, Shoes & Jewelery">Clothing, Shoes & Jewelery</option>
+								<option value="Electronics & Computers">Electronics & Computers</option>
+								<option value="Furniture">Furniture</option>
+								<option value="Other">Other</option>
+							</select>
+						</div>
+						<div class="col-lg-3 col-sm-3 col-xs-12">
+							<select class="form-control" name="searchCategory2" id="searchCategory2">
+								<option value="" selected>Choose subcategory</option>
+								<option value="Clothing, Shoes & Jewelery">Women</option>
+								<option value="Clothing, Shoes & Jewelery">Men</option>
+								<option value="Clothing, Shoes & Jewelery">Kids</option>
+								<option value="Electronics & Computers">TV & Video</option>
+								<option value="Electronics & Computers">Home Audio & Theater</option>
+								<option value="Electronics & Computers">Camera, Photo & Video</option>
+								<option value="Electronics & Computers">Cell Phones & Accessories</option>
+								<option value="Electronics & Computers">Computers & Tablets</option>
+								<option value="Furniture">Bedroom furniture</option>
+								<option value="Furniture">Living room furniture</option>
+								<option value="Furniture">Kitchen dining room furniture</option>
+								<option value="Furniture">Home office furniture</option>
+								<option value="Furniture">Kids furniture</option>
+							</select>
+						</div>
+						<div class="col-lg-3 col-sm-3 col-xs-12">
+							<input class="btn btn-action" id="searchBtn" type="submit" value="Search">
+						</div>
+					</form>
+				</div>
+
+				<div class="card">
+					<div class="card-header">
+						<h2 class="title thin">Search results</h2>
+					</div>
+				</div>
+					
+				<div id="showGoods">
+						
+
+
+
+					
+				</div>
+			</div>
+		</div> <!-- /container -->
+	</div>
+
+
+
+		
+
+
+
+
+
+	<!-- Footer -->
+
+	<footer class="footer" class="top-space">
+
+		<div class="container">
+			<div class="row">
+				<div class="col-sm-3">
+					<h2 class="logo"><a href="indexsigned.html">FreeHands</a></h2>
+					<p>Uncommercial project created to help people to exchange different goods for free</p>
+				</div>
+				<div class="col-sm-3">
+					<h5>Get started</h5>
+					<ul>
+						<li><a href="index.html">Home</a></li>
+						<li><a href="signin.html">Sign in</a></li>
+						<li><a href="signup.html">Sign up</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>About us</h5>
+					<ul>
+						<li><a href="about.html">Our policy</a></li>
+						<li><a href="#">User agreement</a></li>
+						<li><a href="#">FAQs</a></li>
+					</ul>
+				</div>
+				<div class="col-sm-3">
+					<h5>Our APPs</h5>
+					<ul>
+						<li><a href="https://play.google.com/store?hl=ru">FreeHands for Android</a></li>
+						<li><a href="http://www.apple.com/ru/itunes/charts/free-apps/">FreeHands for IOS</a></li>
+					</ul>
+				</div>
+			</div>
+		</div>
+		<div class="footer-copyright">
+			<p>Copyright &copy; 2017, FreeHands. All Rights Reserved</p>
+		</div>
+	</footer>	
+
+		<!-- Go totop button -->
+		<a id="go-to-top" href="#" class="btn btn-action  btn-lg go-to-top" role="button" title="Go to top">
+			<span class="glyphicon glyphicon-chevron-up"></span>
+		</a>
+
+
+		<!-- JavaScript libs are placed at the end of the document so the pages load faster -->
+
+		<script type="text/javascript" src="js/libs.min.js"></script>
+		<script type="text/javascript" src="libs/jquery/dist/jquery.min.js"></script>
+		<script type="text/javascript" src="libs/jquery-validation/dist/jquery.validate.min.js"></script>
+		<script type="text/javascript" src="libs/jquery-validation/dist/additional-methods.min.js"></script>
+		<script type="text/javascript" src="libs/bootstrap/dist/js/bootstrap.min.js"></script>
+		<script type="text/javascript" src="js/script.js"></script>
+		<script type="text/javascript" src="js/logout.js"></script>
+		<script type="text/javascript" src="js/myAccount.html"></script>
+		<script type="text/javascript" src="js/search.js"></script>
+		
+	</body>
+	</html>

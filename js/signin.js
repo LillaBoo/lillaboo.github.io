@@ -45,7 +45,7 @@ $(document).ready(function(){
                     'Authorization':'Basic ' + btoa(token)
                 },
                 success: function(){
-                    location.href = "myaccount.html";
+                    location.href = "myAccount.html";
                 },
                 error: function(){
                     alert("Email or password is uncorrected");

@@ -180,7 +180,7 @@ body {
 }
 
 .btn:hover {
-  background-color: #9F9F9F;
+  background-color: #928888;
 }
 
 .btn-lg {
@@ -725,6 +725,7 @@ hr {
 @media (max-width: 767px) {
   #profileAvatar {
     text-align: center;
+    margin-bottom: 0;
   }
 }
 
@@ -745,6 +746,7 @@ hr {
 @media (max-width: 767px) {
   .changeAvatarForm {
     text-align: center;
+    margin-top: -60px;
   }
 }
 
@@ -1277,7 +1279,7 @@ hr {
   -webkit-border-radius: 3px;
           border-radius: 3px;
   padding: 15px;
-  background-color: #999999;
+  background-color: #5C4C4D;
 }
 
 .card .card-header .title {
@@ -1399,7 +1401,7 @@ hr {
 
 @media (max-width: 767px) {
   .sidebar-account-wrapper #closebtn i {
-    font-size: 1.5em;
+    font-size: 2em;
   }
 }
 
@@ -1434,3 +1436,7 @@ hr {
   padding-top: 7px;
   padding-bottom: 7px;
 }
+
+/*******************************/
+/*         Chats                */
+/********************************/

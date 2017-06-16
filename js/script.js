@@ -41,7 +41,7 @@ function openNav() {
   var docWidth = $(window).width();
   $("#mySidenav").show();
   if (docWidth <= 767) {
-  $("#mySidenav").css("width", "95%");
+  $("#mySidenav").css("width", "90%");
   } else {
   $("#mySidenav").css("width", "300px");
   }

@@ -24,16 +24,16 @@ $(document).ready(function(){
 				.append($("<p></p>")
 					.text("No gifts to show"));
 			}else{
-
-				for (var i = 0; i <= giftsCount - 1 ; i++) {
+				var n = 0
+				for (var i = giftsCount - 1; i >= 0  ; i--) {
 					var idGift = data[i].id_str;
 					var photoUrl = 'img/show.jpg';
 					if (data[i].photo1 != null) {
 						photoUrl = data[i].photo1;
 					}
-					if (i%3 == 0) {
-						$('#allGiftsList').append('<div class="row gift" id="' + (i/3) + '"></div>');
-						$('#' + (i/3)).append('<div class="col-sm-4">' + 
+					if (n%3 == 0) {
+						$('#allGiftsList').append('<div class="row gift" id="' + (n/3) + '"></div>');
+						$('#' + (n/3)).append('<div class="col-sm-4">' + 
 							'<div class="thumbnail" id="' + idGift + '"><img src=' + photoUrl + ' alt="">'+
 							'<div class="caption"><h5>' + data[i].title + '</h5><p>' + 
 							data[i].productAd + '</p><p><a class="btn btn-primary href-btn giftDetails">Details >></a>' + 
@@ -45,6 +45,7 @@ $(document).ready(function(){
 							data[i].productAd + '</p><p><a class="btn btn-primary href-btn giftDetails">Details >></a>' + 
 							'</div></div></div>');
 					};
+					n++;
 				};
 
 				$('#allGiftsList').parent().append('<p id="show_more_btn">' + 

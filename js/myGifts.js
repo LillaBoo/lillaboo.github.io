@@ -2,15 +2,7 @@ $(document).ready(function(){
 
 	var token = localStorage.getItem('access_token');
 
-	$.ajax({
-		url: "https://freehands1337.herokuapp.com/freehands/getallmyproductscurrent",
-		type: "GET",
-		dataType: "json",
-		contentType: "application/json; charset=utf-8",
-		headers: {
-			'Authorization':'Basic ' + btoa(token)
-		}
-	});
+
 
 	$.ajax({
 		url: "https://freehands1337.herokuapp.com/freehands/getallmyproductscurrent",
@@ -30,6 +22,7 @@ $(document).ready(function(){
 		} else{
 				var n = 0;
 				for (var i = giftsCount - 1; i >= 0; i--) {
+					if (data[i].id_str !== null){
 					var idGift = data[i].id_str;
 					var idAddress;
 					if (data[i].address === null){
@@ -58,6 +51,7 @@ $(document).ready(function(){
 							'</div></div></div>');
 					};
 				};
+			}
 		};	
 	});
 

@@ -473,7 +473,7 @@ hr {
 }
 
 @media (max-width: 767px) {
-  .myAccountcontainer > #chatCard {
+  .chatContainer {
     padding-left: 0;
     padding-right: 0;
   }

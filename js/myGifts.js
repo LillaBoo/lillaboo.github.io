@@ -20,13 +20,8 @@ $(document).ready(function(){
 		} else{
 				var n = 0;
 				for (var i = giftsCount - 1; i >= 0; i--) {
-					var idGift;
+					var idGift = data[i].id_str;
 					var idAddress;
-					if (data[i].id_str === null){
-						idGift = null;
-					} else {
-					idGift = data[i].id_str;
-					}
 					if (data[i].address === null){
 						idAddress = null;
 					} else {

@@ -10,6 +10,16 @@ $(document).ready(function(){
 		headers: {
 			'Authorization':'Basic ' + btoa(token)
 		}
+	});
+
+	$.ajax({
+		url: "https://freehands1337.herokuapp.com/freehands/getallmyproductscurrent",
+		type: "GET",
+		dataType: "json",
+		contentType: "application/json; charset=utf-8",
+		headers: {
+			'Authorization':'Basic ' + btoa(token)
+		}
 	}).then(function(data){
 
 		var giftsCount = data.length;

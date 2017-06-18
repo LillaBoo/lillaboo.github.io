@@ -1274,13 +1274,6 @@ hr {
   background: #fff;
 }
 
-@media (max-width: 767px) {
-  .card {
-    padding-left: 0;
-    padding-right: 0;
-  }
-}
-
 .card .title {
   margin-top: 0;
   margin-bottom: 5px;
@@ -1289,15 +1282,6 @@ hr {
 .card .card-content {
   padding: 20px 30px;
   margin-bottom: 30px;
-}
-
-@media (max-width: 767px) {
-  .card .card-content {
-    padding-left: 3px;
-    padding-right: 3px;
-    padding-bottom: 3px;
-    margin-bottom: 0;
-  }
 }
 
 .card .card-header {

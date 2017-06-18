@@ -1468,6 +1468,22 @@ hr {
 /*******************************/
 /*         Chats                */
 /********************************/
+@media (max-width: 767px) {
+  #chatCard .card {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
+@media (max-width: 767px) {
+  #chatCard .card .card-content {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 0;
+  }
+}
+
 #usersChat {
   padding: 20px auto;
 }

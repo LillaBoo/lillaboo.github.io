@@ -146,6 +146,8 @@ $(document).ready(function(){
 			var strNamePhone = JSON.stringify(updateInfo);
 			var strPassword = JSON.stringify(updatePassword);
 
+
+
 			$.ajax({
 				url: "https://freehands1337.herokuapp.com/freehands/fulluserinfo",
 				type: "PUT",
@@ -156,7 +158,7 @@ $(document).ready(function(){
 					'Authorization':'Basic ' + btoa(token)
 				}
 			}).then(function(data){
-				
+
 				// if (password != null) {
 				// 	$.ajax({
 				// 		url: "https://freehands1337.herokuapp.com/freehands/changepassword",
@@ -172,6 +174,7 @@ $(document).ready(function(){
 				// 		localStorage.setItem('access_token', token);
 				// 	});
 				// }
+				
 
 				$('#saveInfo').hide();
 				$('.edit').show();

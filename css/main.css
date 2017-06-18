@@ -472,6 +472,13 @@ hr {
   width: 100%;
 }
 
+@media (max-width: 767px) {
+  .myAccountcontainer {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .maincontent {
   margin-top: 30px;
   margin-bottom: 30px;
@@ -1267,6 +1274,13 @@ hr {
   background: #fff;
 }
 
+@media (max-width: 767px) {
+  .card {
+    padding-left: 0;
+    padding-right: 0;
+  }
+}
+
 .card .title {
   margin-top: 0;
   margin-bottom: 5px;
@@ -1275,6 +1289,15 @@ hr {
 .card .card-content {
   padding: 20px 30px;
   margin-bottom: 30px;
+}
+
+@media (max-width: 767px) {
+  .card .card-content {
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-bottom: 3px;
+    margin-bottom: 0;
+  }
 }
 
 .card .card-header {
@@ -1449,6 +1472,12 @@ hr {
   padding: 20px auto;
 }
 
+@media (max-width: 767px) {
+  #usersChat {
+    width: 100%;
+  }
+}
+
 .chat {
   margin: 10px auto;
   width: 80%;
@@ -1469,6 +1498,13 @@ hr {
 .chat .chat-header {
   padding: 20px;
   border-bottom: 2px solid white;
+}
+
+@media (max-width: 767px) {
+  .chat .chat-header {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
 }
 
 .chat .chat-header img {
@@ -1504,6 +1540,14 @@ hr {
   height: 400px;
 }
 
+@media (max-width: 767px) {
+  .chat .chat-history {
+    height: 250px;
+    padding-left: 3px;
+    padding-right: 3px;
+  }
+}
+
 .chat .chat-history ul {
   margin-left: 0;
   padding-left: 0;
@@ -1532,6 +1576,13 @@ hr {
   margin-bottom: 30px;
   width: 90%;
   position: relative;
+}
+
+@media (max-width: 767px) {
+  .chat .chat-history .message {
+    padding-left: 3px;
+    padding-right: 3px;
+  }
 }
 
 .chat .chat-history .message:after {
@@ -1563,6 +1614,12 @@ hr {
 
 .chat .chat-message {
   padding: 30px;
+}
+
+@media (max-width: 767px) {
+  .chat .chat-message {
+    padding: 10px 3px;
+  }
 }
 
 .chat .chat-message textarea {

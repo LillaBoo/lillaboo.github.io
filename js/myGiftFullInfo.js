@@ -11,8 +11,8 @@ $(document).ready(function(){
 	$(document).on('click', '.edit', function(){
 		$('#editForm').show();
 		$('html, body').animate({
-        scrollTop: $("#descriptionInfo").offset().top
-    }, 300);
+			scrollTop: $("#descriptionInfo").offset().top
+		}, 300);
 		$('#addItemName').val($('#titleInfo').text());
 
 		var options = $('#category2').children().clone();
@@ -164,7 +164,6 @@ $(document).ready(function(){
 					'Authorization':'Basic ' + btoa(token)
 				}
 			});
-			
 			location.href = "myGifts.html";
 		});
 	});
@@ -258,7 +257,7 @@ function getEditGiftJson (title, category1, category2, description, photo1, phot
 
 function getMyGiftInfo(token, myGiftId){
 	$.ajax({
-		url: "https://freehands1337.herokuapp.com/freehands/getallmyproductscurrent",
+		url: "https://freehands1337.herokuapp.com/freehands/" + myGiftId + "/getoneproduct",
 		type: "GET",
 		dataType: "json",
 		contentType: "application/json; charset=utf-8",
@@ -266,104 +265,96 @@ function getMyGiftInfo(token, myGiftId){
 			'Authorization':'Basic ' + btoa(token)
 		}
 	}).then(function(data){
-		for (var i = 0; i <= data.length - 1; i++) {
-			if (data[i].id_str == myGiftId) {
-				if ((data[i].photo1 != null) && (data[i].photo2 == null) && (data[i].photo3 == null)) {
-					$('#onePhoto').attr({
-						src: data[i].photo1,
-						alt: data[i].title
-					});
-				} else
-				if ((data[i].photo2 != null) && (data[i].photo3 == null)) {
-					$('.image').css('display', 'none');
-					$('#myCarousel').show();
-					$('#photo1').attr({
-						src: data[i].photo1,
-						alt: data[i].title
-					});
-					$('#photo2').attr({
-						src: data[i].photo2,
-						alt: data[i].title
-					});
-				} else
-				if (data[i].photo3 != null) {
-					$('.image').css('display', 'none');
-					$('#myCarousel').show();
-					$('#photo1').attr({
-						src: data[i].photo1,
-						alt: data[i].title
-					});
-					$('#photo2').attr({
-						src: data[i].photo2,
-						alt: data[i].title
-					});
-					$('.carousel-indicators').append('<li data-target="#myCarousel" data-slide-to="2"></li>');
-					$('.carousel-inner').append('<div class="item">' +
-						'<img id="photo3" src="" alt=""></div>');
-					$('#photo3').attr({
-						src: data[i].photo3,
-						alt: data[i].title
-					});
-				}
-				$('#titleInfo').text(data[i].title);
-				$('#addressInfo').text(data[i].address.street + ', ' + data[i].address.city + ', ' + data[i].address.country);
-				$('#descriptionInfo').text(data[i].description);
-				$('#dateInfo').text('Gift was added on ' + data[i].timeadd.dayOfMonth + ' ' + data[i].timeadd.month + ' ' + data[i].timeadd.year);
 
-				var wishers = data[i].wishers;
-				if (wishers.length == 0){
-					$('#giftWishers').empty();
-					$('#giftWishers')
-					.append($("<p></p>")
-						.text("There are no wishers for this gift"));
-				} else {
-					var wishersInfo = {
-						wishers: wishers
-					};
-
-					var strWishers = JSON.stringify(wishersInfo);
-
-					$.ajax({
-						url: "https://freehands1337.herokuapp.com/freehands/getmywishers",
-						type: "PUT",
-						dataType: "json",
-						data: strWishers,
-						contentType: "application/json; charset=utf-8",
-						headers: {
-							'Authorization':'Basic ' + btoa(token)
-						}
-					}).then(function(data){
-						$('#giftWishers').empty();
-						for (var j = 0; j <= data.length - 1; j++) {
-							var idWisher = data[j].id_str;
-							$('#giftWishers').append('<div class="row item" id="' + idWisher +'"><div class="col-lg-10 col-sm-10 col-xs-10">' + 
-								'<p class="wisherInfo" id="wisherString' + j +'"></p></div><div class="col-lg-2 col-sm-2 col-xs-2">' + 
-								'<div class="giveGift" title="Start chat"><i class="fa fa-comments-o" aria-hidden="true"></i>'+ 
-								'</div></div></div>');
-							var name = 'no name';
-							var phone = 'no phone';
-							if ((data[j].phone != null) && (data[j].phone != " ") && (data[j].phone)) {
-								phone = 'phone ' + data[j].phone;
-							}
-							if ((data[j].firstName != null) && (data[j].firstName != "")) {
-								name = data[j].firstName;
-							}
-
-							$('#wisherString' + j).text(data[j].email + ', ' + 
-								phone + ', ' + name);
-
-						}
-
-					});
-
-
-					
-
-
-
-				}
-			}
+		if ((data.photo1 != null) && (data.photo2 == null) && (data.photo3 == null)) {
+			$('#onePhoto').attr({
+				src: data.photo1,
+				alt: data.title
+			});
+		} else
+		if ((data.photo2 != null) && (data.photo3 == null)) {
+			$('.image').css('display', 'none');
+			$('#myCarousel').show();
+			$('#photo1').attr({
+				src: data.photo1,
+				alt: data.title
+			});
+			$('#photo2').attr({
+				src: data.photo2,
+				alt: data.title
+			});
+		} else
+		if (data.photo3 != null) {
+			$('.image').css('display', 'none');
+			$('#myCarousel').show();
+			$('#photo1').attr({
+				src: data.photo1,
+				alt: data.title
+			});
+			$('#photo2').attr({
+				src: data.photo2,
+				alt: data.title
+			});
+			$('.carousel-indicators').append('<li data-target="#myCarousel" data-slide-to="2"></li>');
+			$('.carousel-inner').append('<div class="item">' +
+				'<img id="photo3" src="" alt=""></div>');
+			$('#photo3').attr({
+				src: data.photo3,
+				alt: data.title
+			});
 		}
+		$('#titleInfo').text(data.title);
+		$('#addressInfo').text(data.address.street + ', ' + data.address.city + ', ' + data.address.country);
+		$('#descriptionInfo').text(data.description);
+		$('#dateInfo').text('Gift was added on ' + data.timeadd.dayOfMonth + ' ' + data.timeadd.month + ' ' + data.timeadd.year);
+
+		var wishers = data.wishers;
+		if (wishers.length == 0){
+			$('#giftWishers').empty();
+			$('#giftWishers')
+			.append($("<p></p>")
+				.text("There are no wishers for this gift"));
+		} else {
+			var wishersInfo = {
+				wishers: wishers
+			};
+
+			var strWishers = JSON.stringify(wishersInfo);
+
+			$.ajax({
+				url: "https://freehands1337.herokuapp.com/freehands/getmywishers",
+				type: "PUT",
+				dataType: "json",
+				data: strWishers,
+				contentType: "application/json; charset=utf-8",
+				headers: {
+					'Authorization':'Basic ' + btoa(token)
+				}
+			}).then(function(data){
+				$('#giftWishers').empty();
+				for (var j = 0; j <= data.length - 1; j++) {
+					var idWisher = data[j].id_str;
+					$('#giftWishers').append('<div class="row item" id="' + idWisher +'"><div class="col-lg-10 col-sm-10 col-xs-10">' + 
+						'<p class="wisherInfo" id="wisherString' + j +'"></p></div><div class="col-lg-2 col-sm-2 col-xs-2">' + 
+						'<div class="giveGift" title="Start chat"><i class="fa fa-comments-o" aria-hidden="true"></i>'+ 
+						'</div></div></div>');
+					var name = 'no name';
+					var phone = 'no phone';
+					if ((data[j].phone != null) && (data[j].phone != " ") && (data[j].phone)) {
+						phone = 'phone ' + data[j].phone;
+					}
+					if ((data[j].firstName != null) && (data[j].firstName != "")) {
+						name = data[j].firstName;
+					}
+
+					$('#wisherString' + j).text(data[j].email + ', ' + 
+						phone + ', ' + name);
+
+				}
+
+			});
+		}
+		
 	});
 }
 

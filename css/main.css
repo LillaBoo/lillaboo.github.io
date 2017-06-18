@@ -1460,6 +1460,12 @@ hr {
   color: #434651;
 }
 
+@media (max-width: 767px) {
+  .chat {
+    width: 100%;
+  }
+}
+
 .chat .chat-header {
   padding: 20px;
   border-bottom: 2px solid white;

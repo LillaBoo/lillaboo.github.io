@@ -177,6 +177,11 @@ $(document).ready(function(){
 			window.setTimeout(initialize, 3000);
 		});
 
+	$(document).on('click', '.giveGift', function(){
+		var itemId = $(this).closest('.item').attr('id');
+		window.location.href = "usersChat.html?id=" + itemId;
+	});
+
 });
 
 
@@ -332,7 +337,7 @@ function getMyGiftInfo(token, myGiftId){
 							var idWisher = data[j].id_str;
 							$('#giftWishers').append('<div class="row item" id="' + idWisher +'"><div class="col-lg-10 col-sm-10 col-xs-10">' + 
 								'<p class="wisherInfo" id="wisherString' + j +'"></p></div><div class="col-lg-2 col-sm-2 col-xs-2">' + 
-								'<div class="giveGift" title="To give the gift"><i class="fa fa-gift" aria-hidden="true"></i>'+ 
+								'<div class="giveGift" title="Start chat"><i class="fa fa-comments-o" aria-hidden="true"></i>'+ 
 								'</div></div></div>');
 							var name = 'no name';
 							var phone = 'no phone';

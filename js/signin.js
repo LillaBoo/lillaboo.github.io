@@ -56,7 +56,6 @@ $(document).ready(function(){
                 alert("Email or password is uncorrected");
             }
         }).then(function(data){
-            console.log(data);
             localStorage.setItem('access_token', token);
         }); 
         }

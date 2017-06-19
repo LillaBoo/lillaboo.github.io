@@ -58,7 +58,8 @@ $(document).ready(function(){
 	}).bind('cloudinarydone', function(e, data) {
 		$('#photosToAdd').append($.cloudinary.image(data.result.public_id, {
 			format: 'jpg',
-			gravity: 'face'
+			height: 500,
+			crop: 'scale'
 		}));
 		return true;
 	}

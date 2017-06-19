@@ -1274,6 +1274,12 @@ hr {
   background: #fff;
 }
 
+@media (max-width: 991px) {
+  .card #saveInfo {
+    margin-left: 15px;
+  }
+}
+
 .card .title {
   margin-top: 0;
   margin-bottom: 5px;

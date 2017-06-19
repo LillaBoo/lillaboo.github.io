@@ -1,9 +1,11 @@
 $(document).ready(function(){
 
 	var token = localStorage.getItem('access_token');
+
+	
 	
 
-	getInfo(token);
+	getInfo();
 
 	$('#changeAvatar').click(function(){
 		$(this).hide();
@@ -32,7 +34,7 @@ $(document).ready(function(){
 						width: 150, 
 						crop: "scale"
 					}
-				]}));
+					]}));
 			return true;
 		}
 		).bind('cloudinaryprogress', function(e, data) {
@@ -56,28 +58,28 @@ $(document).ready(function(){
 					photo = $("#photoToAdd").children().eq(0).attr('src');
 				}
 				var avatarJson = {
-				photo: photo
+					photo: photo
 				};
 
 				var avatarStr = JSON.stringify(avatarJson);
 
-			$.ajax({
-				url: "https://freehands1337.herokuapp.com/freehands/setavatar",
-				type: "PUT",
-				dataType: "json",
-				data: avatarStr,
-				contentType: "application/json; charset=utf-8",
-				headers: {
-					'Authorization':'Basic ' + btoa(token)
-				},
-				error: function(){
-					alert("Check the photo");
-				}
-			}).then(function(){
-				$('#setAvatarForm').css('visibility', 'hidden');
-				$('#changeAvatar').show();
-				getInfo(token);
-			});
+				$.ajax({
+					url: "https://freehands1337.herokuapp.com/freehands/setavatar",
+					type: "PUT",
+					dataType: "json",
+					data: avatarStr,
+					contentType: "application/json; charset=utf-8",
+					headers: {
+						'Authorization':'Basic ' + btoa(token)
+					},
+					error: function(){
+						alert("Check the photo");
+					}
+				}).then(function(){
+					$('#setAvatarForm').css('visibility', 'hidden');
+					$('#changeAvatar').show();
+					getInfo(token);
+				});
 			}
 		});
 	});
@@ -159,23 +161,21 @@ $(document).ready(function(){
 				}
 			}).then(function(data){
 
-				// if (password != null) {
-				// 	$.ajax({
-				// 		url: "https://freehands1337.herokuapp.com/freehands/changepassword",
-				// 		type: "PUT",
-				// 		dataType: "json",
-				// 		data: strPassword,
-				// 		contentType: "application/json; charset=utf-8",
-				// 		headers: {
-				// 			'Authorization':'Basic ' + btoa(token)
-				// 		}
-				// 	}).then(function(){
-				// 		token = email + ":" + password;
-				// 		localStorage.setItem('access_token', token);
-				// 	});
-				// }
-				
-
+				if (password !== null) {
+					$.ajax({
+						url: "https://freehands1337.herokuapp.com/freehands/changepassword",
+						type: "PUT",
+						data: strPassword,
+						contentType: "application/json; charset=utf-8",
+						headers: {
+							'Authorization':'Basic ' + btoa(token)
+						},
+						success: function(){
+							localStorage.setItem('access_token', (email + ":" + password));
+						}
+					});
+				} 
+				token = localStorage.getItem('access_token');
 				$('#saveInfo').hide();
 				$('.edit').show();
 				$('#editPassword').show();
@@ -184,7 +184,8 @@ $(document).ready(function(){
 				$('#emailInfo').attr('disabled', true);
 				$('#nameInfo').attr('disabled', true);
 				$('#phoneInfo').attr('disabled', true);
-				getInfo(token);
+				getInfo();
+				
 			});
 		}
 	});
@@ -193,7 +194,9 @@ $(document).ready(function(){
 
 
 
-var getInfo = function(token){ $.ajax({
+var getInfo = function(){ 
+	var token = localStorage.getItem('access_token');
+	$.ajax({
 	url: "https://freehands1337.herokuapp.com/freehands/fulluserinfo",
 	type: "GET",
 	dataType: "json",
